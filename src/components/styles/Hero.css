@@ -1,0 +1,683 @@
+@import './variables.css';
+
+/* Premium Gen Z & Startup Focused Hero Design */
+.hero-section {
+    position: relative;
+    padding-top: 100px;
+    /* Reduced from 120px to further decrease top whitespace */
+    padding-bottom: 100px;
+    padding-left: 60px;
+    padding-right: 60px;
+    min-height: calc(100vh - 20px);
+    max-height: 900px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    overflow: visible;
+    z-index: 1;
+}
+
+/* BOLD BACKGROUND ELEMENTS - Gen Z style with muted neon accents */
+.hero-bg-element {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-bg-gradient {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(85% 85% at 25% 15%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%),
+        radial-gradient(50% 50% at 80% 75%, rgba(8, 218, 253, 0.15) 0%, rgba(255, 255, 255, 0) 100%),
+        radial-gradient(50% 50% at 15% 85%, rgba(57, 241, 208, 0.1) 0%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(8, 218, 253, 0.05) 100%);
+    opacity: 1;
+}
+
+/* Noise texture overlay for authentic startup feel */
+.hero-bg-pattern {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    mix-blend-mode: multiply;
+}
+
+/* GEN Z STYLE ACCENT ELEMENTS */
+.hero-accent-1 {
+    top: -100px;
+    right: -100px;
+    width: 550px;
+    height: 550px;
+    background: linear-gradient(135deg,
+            rgba(8, 218, 253, 0.08) 0%,
+            rgba(57, 241, 208, 0.04) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.hero-accent-2 {
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(225deg,
+            rgba(57, 241, 208, 0.07) 0%,
+            rgba(8, 218, 253, 0.04) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(70px);
+}
+
+/* MODERN STATIC DECORATIVE ELEMENTS - startup/Gen Z aesthetic */
+.hero-decorative {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Sharp stars for tech vibe */
+.hero-star-1 {
+    top: 25%;
+    right: 18%;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(8, 218, 253, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(15deg);
+    opacity: 0.4;
+}
+
+.hero-star-2 {
+    bottom: 22%;
+    left: 12%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(57, 241, 208, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(-20deg);
+    opacity: 0.3;
+}
+
+/* Dashed circle with sharp edges */
+.hero-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px dashed rgba(8, 218, 253, 0.15);
+    top: 38%;
+    right: 15%;
+}
+
+/* Modern dot - simple but effective */
+.hero-dot {
+    bottom: 28%;
+    right: 22%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(8, 218, 253, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+}
+
+/* Geometric shapes for visual interest */
+.hero-shape-1 {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 2px solid rgba(8, 218, 253, 0.1);
+    transform: rotate(30deg);
+    top: 25%;
+    left: 10%;
+}
+
+.hero-shape-2 {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    border: 2px solid rgba(57, 241, 208, 0.1);
+    border-radius: 60px 60px 0 0;
+    bottom: 25%;
+    right: 12%;
+    transform: rotate(45deg);
+}
+
+/* Modern line elements - simple but striking */
+.hero-line-1 {
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background-image: linear-gradient(90deg, rgba(8, 218, 253, 0), rgba(8, 218, 253, 0.3), rgba(8, 218, 253, 0));
+    top: 42%;
+    right: 30%;
+    transform: rotate(45deg);
+}
+
+.hero-line-2 {
+    position: absolute;
+    width: 160px;
+    height: 2px;
+    background-image: linear-gradient(90deg, rgba(57, 241, 208, 0), rgba(57, 241, 208, 0.3), rgba(57, 241, 208, 0));
+    bottom: 35%;
+    left: 15%;
+    transform: rotate(-30deg);
+}
+
+/* Skewed rectangle - trendy Gen Z element */
+.hero-skew-rect {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(8, 218, 253, 0.03) 0%, rgba(57, 241, 208, 0.02) 100%);
+    transform: skew(-20deg);
+    top: 50%;
+    right: 25%;
+    border-radius: 4px;
+    border-left: 2px solid rgba(8, 218, 253, 0.2);
+}
+
+/* MAIN CONTAINER - improved spacing */
+.hero-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+/* TYPOGRAPHICALLY ENHANCED CONTENT SECTION */
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+/* Bold badge with modern cuts */
+.hero-badge {
+    display: inline-block;
+    background: rgba(8, 218, 253, 0.06);
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 900;
+    padding: 9px 18px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    letter-spacing: 1.2px;
+    border-left: 3px solid rgba(8, 218, 253, 0.5);
+    border-right: 3px solid rgba(57, 241, 208, 0.5);
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Gen Z style cutout badge effect */
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: -6px;
+    transform: translateY(-50%);
+}
+
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+}
+
+/* Bold, chunky title with better spacing and Gen Z style - REDUCED SIZE */
+.hero-title {
+    font-size: 3.8rem;
+    /* Reduced from 4.5rem */
+    font-weight: 900;
+    color: var(--text-dark);
+    margin: 0 0 20px;
+    /* Reduced from 30px */
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.title-line {
+    display: block;
+    margin-bottom: 8px;
+    /* Reduced from 12px */
+    position: relative;
+    overflow: hidden;
+}
+
+/* INNOVATIVE HIGHLIGHT STYLING - split gradient with sharp edges */
+.title-highlight {
+    position: relative;
+    color: transparent;
+    background: linear-gradient(92deg,
+            #0d6efd 0%,
+            #08DAFD 45%,
+            #39F1D0 75%,
+            #63e6be 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline;
+    background-size: 300% auto;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+}
+
+/* Futuristic underline with sharp cutout */
+.title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: calc(100% + 8px);
+    height: 16px;
+    background: linear-gradient(90deg,
+            rgba(8, 218, 253, 0.2) 0%,
+            rgba(57, 241, 208, 0.2) 100%);
+    z-index: -1;
+    mask-image: linear-gradient(to right,
+            black 0%,
+            black 90%,
+            transparent 90%,
+            transparent 95%,
+            black 95%,
+            black 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+/* MODERNIZED SUBTITLE - Gen Z style with better spacing & Cabinet Grotesk */
+.hero-subtitle {
+    font-size: 1.1rem;
+    /* Reduced from 1.3rem */
+    color: rgba(25, 28, 40, 0.9);
+    margin: 0 0 30px;
+    /* Reduced from 38px */
+    line-height: 1.5;
+    /* Reduced from 1.6 */
+    font-weight: 500;
+    max-width: 95%;
+    position: relative;
+    font-family: 'Cabinet Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-left: 3px solid rgba(57, 241, 208, 0.4);
+    padding-left: 14px;
+    /* Reduced from 16px */
+    margin-left: 2px;
+}
+
+/* Bold words with geometric underline */
+.hero-subtitle strong {
+    color: var(--primary-dark);
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-subtitle strong::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(8, 218, 253, 0.18);
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+}
+
+/* SLEEK METRICS STYLING WITH MODERN BORDERS - MORE COMPACT */
+.hero-metrics {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+    /* Reduced from 30px for less bottom whitespace */
+    position: relative;
+    padding: 12px 25px;
+    /* Reduced from 18px 25px for less top/bottom whitespace inside */
+    border-radius: 16px;
+}
+
+/* Sharp corner accent on metrics card - modified to be more subtle without background */
+.hero-metrics::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, transparent 50%, rgba(8, 218, 253, 0.07) 50%);
+    /* Reduced opacity from 0.1 to 0.07 */
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Enhanced connector styling */
+.metric-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom,
+            rgba(8, 218, 253, 0.1) 0%,
+            rgba(8, 218, 253, 0.3) 50%,
+            rgba(8, 218, 253, 0.1) 100%);
+    transform: translateY(-50%);
+}
+
+.metric-value {
+    font-size: 2.4rem;
+    /* Reduced from 2.6rem */
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+    /* Reduced from 10px */
+    letter-spacing: -0.03em;
+}
+
+/* Edgy Gen Z style metric labels */
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.metric-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-blue) 30%, transparent 100%);
+}
+
+/* Modern CTA button container */
+.hero-cta-container {
+    margin-top: 12px;
+    text-align: left;
+    position: relative;
+}
+
+/* Form wrapper with modern border */
+.hero-form-wrapper {
+    flex: 0 0 440px;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    z-index: 3;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Gen Z style form card elevation effect */
+.hero-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border: 1px solid rgba(8, 218, 253, 0.1);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.hero-form-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 1px dashed rgba(57, 241, 208, 0.2);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Responsive styling with premium adjustments */
+@media (max-width: 1200px) {
+    .hero-section {
+        padding-top: 85px;
+        /* Reduced from 100px */
+        padding-bottom: 60px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        /* Reduced from 4rem */
+    }
+}
+
+@media (max-width: 1100px) {
+    .hero-section {
+        padding-top: 80px;
+        /* Reduced from 90px */
+        padding-bottom: 50px;
+        min-height: auto;
+        height: auto;
+        max-height: none;
+        align-items: flex-start;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-cta-container {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3.3rem;
+        /* Reduced from 3.8rem */
+        align-items: center;
+    }
+
+    .hero-metrics {
+        justify-content: center;
+        width: 100%;
+        max-width: 700px;
+        padding: 10px 20px;
+        /* Reduced from what would be implied padding for tighter mobile layout */
+    }
+
+    .metric-item {
+        text-align: center;
+    }
+
+    .metric-label::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+    }
+
+    .hero-form-wrapper {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto 30px;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        border-bottom: 3px solid rgba(57, 241, 208, 0.4);
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 25px 50px;
+        /* Reduced from 80px 25px 50px */
+    }
+
+    .hero-title {
+        font-size: 2.9rem;
+        /* Reduced from 3.2rem */
+    }
+
+    .title-line {
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    .title-line:nth-child(2n) {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 30px;
+        padding-bottom: 12px;
+    }
+
+    .hero-metrics {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 25px;
+        /* Reduced from 35px for less bottom whitespace */
+        padding: 15px;
+        /* Reduced from 20px for less whitespace inside */
+    }
+
+    .metric-item:not(:last-child)::after {
+        width: 60px;
+        height: 1px;
+        left: 50%;
+        bottom: -12px;
+        top: auto;
+        transform: translateX(-50%);
+        background: linear-gradient(to right,
+                rgba(8, 218, 253, 0.1) 0%,
+                rgba(8, 218, 253, 0.3) 50%,
+                rgba(8, 218, 253, 0.1) 100%);
+    }
+
+    /* Hide some decorative elements on mobile */
+    .hero-shape-1,
+    .hero-shape-2,
+    .hero-line-1,
+    .hero-line-2,
+    .hero-skew-rect {
+        display: none;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .hero-section {
+        padding-top: 45px;
+        /* Reduced from 70px */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+        /* Reduced from 2.6rem */
+    }
+
+    .title-line {
+        display: block;
+        margin-right: 0;
+    }
+
+    .hero-badge {
+        font-size: 12px;
+        padding: 8px 16px;
+        margin-bottom: 20px;
+    }
+
+    .hero-metrics {
+        padding: 12px;
+        /* Reduced from 20px 15px for less whitespace inside */
+    }
+
+    .metric-value {
+        font-size: 2.2rem;
+    }
+}
+
+/* New enhancements for Gen Z appeal */
+@keyframes underline-pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Revenue text - special styling for primary-dark color */
+.revenue-text {
+    color: var(--primary-dark) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+.primary-cta:hover {
+    transform: translateY(-8px);
+    /* Increased from -5px to -8px */
+    box-shadow: 0 20px 35px rgba(8, 218, 253, 0.35);
+    /* Increased vertical offset from 15px to 20px */
+}

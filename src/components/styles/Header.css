@@ -1,0 +1,157 @@
+@import './variables.css';
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 20px 40px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(7, 20, 40, 0.08);
+    padding: 12px 40px;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    flex: 0 0 auto;
+}
+
+.site-logo {
+    display: block;
+    text-decoration: none;
+}
+
+.site-logo img {
+    height: 48px;
+    /* Increased from 40px */
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.scrolled .site-logo img {
+    height: 42px;
+    /* Increased from 36px */
+}
+
+.site-nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.site-nav a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.site-nav a:hover {
+    color: var(--primary-blue);
+}
+
+.site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+    width: 100%;
+}
+
+.header-cta {
+    flex: 0 0 auto;
+}
+
+/* Update header button to match submit button style with solid border */
+.header-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--accent-gradient);
+    color: var(--primary-dark);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-dark);
+    position: relative;
+}
+
+/* Direct background change on hover - no animation */
+.header-button:hover {
+    transform: translateY(-6px);
+    /* Increased from -2px to -6px */
+    box-shadow: 0 12px 25px rgba(8, 218, 253, 0.25);
+    /* Increased vertical offset from 6px to 12px */
+    background: white !important;
+    color: var(--primary-dark);
+    border-color: var(--primary-blue);
+}
+
+/* Explicitly remove ::before element */
+.header-button::before {
+    display: none !important;
+}
+
+@media (max-width: 992px) {
+    .site-nav ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 20px;
+    }
+
+    .site-header.scrolled {
+        padding: 10px 20px;
+    }
+
+    .site-nav {
+        display: none;
+        /* Mobile menu would be implemented here */
+    }
+
+    .site-logo img {
+        height: 38px;
+        /* Increased from 32px */
+    }
+
+    .header-button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}

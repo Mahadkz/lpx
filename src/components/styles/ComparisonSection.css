@@ -1,0 +1,800 @@
+@import './variables.css';
+
+.comparison-section {
+    position: relative;
+    padding: 40px 40px;
+    /* Further reduced from 60px 40px to 40px 40px */
+    background-color: #f8fbff;
+    /* Subtle light blue background instead of white */
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Background elements */
+.comparison-bg-element {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg-gradient {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(8, 218, 253, 0.06) 0%,
+            rgba(255, 255, 255, 0) 60%,
+            rgba(10, 25, 59, 0.04) 100%);
+}
+
+.bg-pattern {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(rgba(10, 25, 59, 0.15) 1px, transparent 1px),
+        radial-gradient(rgba(8, 218, 253, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    opacity: 0.08;
+}
+
+/* New static background elements */
+.bg-circle-1 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(8, 218, 253, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+    top: 20%;
+    right: 5%;
+}
+
+.bg-circle-2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px dashed rgba(10, 25, 59, 0.12);
+    bottom: 15%;
+    left: 8%;
+}
+
+.bg-line-1 {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(8, 218, 253, 0.2), transparent);
+    transform: rotate(45deg);
+    top: 35%;
+    left: 5%;
+}
+
+.bg-line-2 {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(10, 25, 59, 0.15));
+    transform: rotate(-30deg);
+    bottom: 25%;
+    right: 10%;
+}
+
+.bg-dots-cluster {
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle, rgba(10, 25, 59, 0.25) 1px, transparent 1px);
+    background-size: 12px 12px;
+    opacity: 0.3;
+    top: 70%;
+    left: 15%;
+}
+
+/* SVG decorative elements */
+.bg-svg {
+    opacity: 0.12;
+    color: var(--primary-dark);
+}
+
+.bg-svg-grid {
+    top: 15%;
+    right: 15%;
+    transform: rotate(-8deg);
+}
+
+.bg-svg-chart {
+    bottom: 20%;
+    right: 20%;
+}
+
+.bg-svg-brackets {
+    top: 30%;
+    left: 10%;
+}
+
+/* Additional static decorative elements */
+.decorative-icon {
+    color: var(--primary-dark);
+    opacity: 0.08;
+}
+
+.decorative-icon-1 {
+    top: 25%;
+    left: 5%;
+    transform: rotate(15deg);
+}
+
+.decorative-icon-2 {
+    bottom: 15%;
+    right: 7%;
+    transform: rotate(-10deg);
+}
+
+.decorative-shape {
+    position: absolute;
+    z-index: -1;
+}
+
+.shape-square {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--primary-blue);
+    opacity: 0.1;
+    top: 40%;
+    left: 7%;
+    transform: rotate(20deg);
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid var(--primary-dark);
+    opacity: 0.06;
+    bottom: 25%;
+    right: 8%;
+    transform: rotate(-5deg);
+}
+
+.decorative-curve {
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    height: 300px;
+    border: 3px solid var(--primary-blue);
+    opacity: 0.07;
+    border-radius: 50%;
+}
+
+/* Main container */
+.comparison-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    background: transparent;
+    /* Changed from gradient background to transparent */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: none;
+    /* Removed box-shadow */
+}
+
+/* Header styles */
+.comparison-header {
+    text-align: center;
+    margin-bottom: 40px;
+    /* Reduced from 50px */
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comparison-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    position: relative;
+}
+
+.comparison-vs {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    position: relative;
+    padding: 0 12px;
+    opacity: 0.7;
+}
+
+/* Style for highlight text */
+.highlight-text {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--accent-gradient);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.comparison-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    opacity: 0.85;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* NEW CONSOLIDATED TABLE DESIGN */
+.consolidated-table-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+    /* Reduced from 50px */
+    overflow: visible;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sleek table styling */
+.consolidated-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(7, 20, 40, 0.08);
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-spacing: 0 5px;
+    margin: 0;
+    overflow: visible;
+}
+
+.consolidated-table tr {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.consolidated-table tr:hover {
+    transform: translateY(-2px);
+}
+
+/* Table header */
+.consolidated-table thead th {
+    padding: 24px 20px;
+    background: var(--offwhite);
+    border-bottom: 2px solid var(--light-gray);
+    text-align: center;
+    position: relative;
+}
+
+.consolidated-table thead th h3 {
+    font-size: 1.3rem;
+    margin: 0 0 12px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.cost-column {
+    width: 25%;
+    text-align: left !important;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.in-house-column {
+    width: 37.5%;
+    border-right: 1px solid var(--light-gray);
+    border-bottom: 4px solid #e64949;
+    /* Red border for in-house */
+}
+
+.phi-column {
+    width: 37.5%;
+    border-bottom: 4px solid #05a66b;
+    /* Green border for Phi */
+    position: relative;
+    /* For badge positioning */
+}
+
+/* Total cost badges in header */
+.total-cost {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-top: 0;
+}
+
+.in-house-cost {
+    color: #e64949;
+    background-color: rgba(230, 73, 73, 0.1);
+}
+
+.phi-cost {
+    color: #05a66b;
+    background-color: rgba(5, 166, 107, 0.1);
+}
+
+/* Table rows */
+.consolidated-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.consolidated-table tbody tr:hover {
+    background-color: rgba(8, 218, 253, 0.03);
+}
+
+.consolidated-table tbody tr:nth-child(odd) {
+    background-color: rgba(240, 244, 248, 0.3);
+}
+
+.consolidated-table tbody tr:nth-child(odd):hover {
+    background-color: rgba(8, 218, 253, 0.05);
+}
+
+.consolidated-table tbody tr.highlight-row {
+    background-color: rgba(8, 218, 253, 0.06);
+    border-left: 4px solid var(--primary-blue);
+    border-right: 4px solid var(--primary-blue);
+}
+
+.consolidated-table tbody tr.highlight-row:hover {
+    background-color: rgba(8, 218, 253, 0.12);
+}
+
+/* Table cells */
+.consolidated-table tbody td {
+    padding: 10px 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 0.9rem;
+    line-height: 1.3;
+    vertical-align: middle;
+    background-color: var(--white);
+    box-shadow: 0 2px 8px rgba(7, 20, 40, 0.06);
+    position: relative;
+    width: 50%;
+    /* IMPORTANT: Force equal width for both columns */
+}
+
+.consolidated-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.consolidated-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--text-dark);
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid var(--light-gray);
+}
+
+.consolidated-table tbody td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+/* Color-coded cells */
+.negative-cell {
+    color: #e64949;
+    font-weight: 600;
+    border-right: 1px solid var(--light-gray);
+    position: relative;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    background-color: rgba(230, 73, 73, 0.04);
+    /* Very subtle red background */
+    border-left: none;
+    /* Remove previous left border */
+    position: relative;
+}
+
+.negative-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-color: #e64949;
+    opacity: 0.7;
+    /* Make border semi-transparent */
+}
+
+.negative-cell strong,
+.negative-cell b {
+    color: #e64949;
+    font-size: 0.95rem;
+}
+
+.positive-cell {
+    color: #05a66b;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    background-color: rgba(5, 166, 107, 0.04);
+    /* Very subtle green background */
+    border-left: none;
+    /* Remove previous left border */
+    position: relative;
+}
+
+.positive-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-color: #05a66b;
+    opacity: 0.7;
+    /* Make border semi-transparent */
+}
+
+.positive-cell strong,
+.positive-cell b {
+    color: #05a66b;
+    font-size: 0.95rem;
+}
+
+/* Additional note text */
+.note {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 2px;
+    font-weight: normal;
+    color: var(--text-dark);
+    font-style: italic;
+}
+
+/* SAVINGS BADGE - Pops out from Phi side */
+.savings-badge {
+    position: absolute;
+    top: 15px;
+    /* Position near the top */
+    right: -20px;
+    /* Pop out from the right side */
+    z-index: 10;
+    transform: rotate(5deg);
+    /* Slightly tilted for visual interest */
+    transition: transform 0.3s ease;
+    top: -30px;
+    right: -50px;
+    transform: rotate(8deg);
+}
+
+.savings-badge:hover {
+    transform: rotate(5deg) scale(1.05);
+    transform: rotate(8deg) scale(1.05);
+}
+
+.savings-badge-content {
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(7, 20, 40, 0.25);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.savings-amount {
+    font-weight: 800;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin-bottom: 2px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.savings-percent {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+/* Add a visual "tape" element to make it look attached */
+.savings-badge-content::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+/* CTA section - simplified, without arrows */
+.comparison-cta-container {
+    text-align: center;
+    padding: 30px;
+    background-color: transparent;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.comparison-cta-text {
+    position: relative;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    /* Arrow-related styles removed */
+}
+
+@media (max-width: 992px) {
+    .consolidated-table {
+        font-size: 0.95rem;
+    }
+
+    .consolidated-table thead th h3 {
+        font-size: 1.2rem;
+    }
+
+    .total-cost {
+        font-size: 1.3rem;
+    }
+
+    .consolidated-table tbody td {
+        padding: 14px 16px;
+    }
+
+    .savings-badge {
+        top: -20px;
+        right: -30px;
+    }
+
+    .comparison-arrow {
+        transform: scale(0.9);
+        bottom: 100px;
+    }
+
+    /* Arrow-related styles removed */
+
+    .comparison-cta-text {
+        font-size: 1.3rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 30px 20px;
+        /* Reduced from 40px 20px to 30px 20px for mobile */
+    }
+
+    .comparison-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .comparison-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Stack the table on mobile */
+    .consolidated-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        border-spacing: 0;
+    }
+
+    .consolidated-table thead th {
+        padding: 16px 12px;
+    }
+
+    .consolidated-table thead th h3 {
+        font-size: 1.1rem;
+    }
+
+    .total-cost {
+        font-size: 1.2rem;
+        padding: 4px 10px;
+    }
+
+    .consolidated-table tbody td {
+        padding: 12px 10px;
+    }
+
+    .cost-column {
+        min-width: 120px;
+    }
+
+    .note {
+        font-size: 0.75rem;
+    }
+
+    /* Adjust badge position on mobile */
+    .savings-badge {
+        top: -15px;
+        right: 20px;
+        transform: rotate(0deg);
+        top: -25px;
+        right: 10px;
+        transform: rotate(0deg) scale(0.9);
+    }
+
+    .savings-badge-content {
+        padding: 8px 14px;
+    }
+
+    .savings-amount {
+        font-size: 1rem;
+    }
+
+    .savings-percent {
+        font-size: 0.8rem;
+    }
+
+    .comparison-cta-text {
+        font-size: 1.3rem;
+    }
+
+    .comparison-cta {
+        padding: 14px 26px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .savings-badge:hover {
+        transform: rotate(0deg) scale(0.95);
+    }
+
+    .column-headers {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .column-header {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .consolidated-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .consolidated-table td {
+        border-radius: 0 !important;
+    }
+
+    .consolidated-table td:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .consolidated-table tbody td {
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    .negative-cell::before,
+    .positive-cell::before {
+        left: 0;
+        width: 100%;
+        height: 3px;
+        top: 0;
+        bottom: auto;
+        /* Reset bottom */
+    }
+
+    .comparison-container {
+        padding: 20px;
+    }
+
+    /* Hide some decorative elements on mobile */
+    .bg-svg-grid,
+    .bg-circle-2,
+    .bg-line-1 {
+        display: none;
+    }
+
+    .comparison-arrow {
+        display: none;
+        /* Hide on mobile */
+    }
+}
+
+/* NEW COLUMN HEADERS - Make them more balanced */
+.column-headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.column-header {
+    width: 50%;
+    /* Changed from 49% to exact 50% for perfect balance */
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    background-color: var(--offwhite);
+}
+
+.column-header h3 {
+    font-size: 1.1rem;
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.in-house-header {
+    border-bottom: 4px solid #e64949;
+    margin-right: 5px;
+    /* Added small margin for visual separation */
+}
+
+.phi-header {
+    border-bottom: 4px solid #05a66b;
+    margin-left: 5px;
+    /* Added small margin for visual separation */
+}
+
+/* Table cells - UPGRADED STYLING */
+.consolidated-table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 100%;
+}
+
+/* Highlight row - IMPROVED */
+.consolidated-table tbody tr.highlight-row td {
+    background-color: rgba(8, 218, 253, 0.06);
+}
+
+.consolidated-table tbody tr.highlight-row .negative-cell::before {
+    width: 3px;
+    opacity: 0.9;
+}
+
+.consolidated-table tbody tr.highlight-row .positive-cell::before {
+    width: 3px;
+    opacity: 0.9;
+}
+
+/* Hover effects - ENHANCED */
+.consolidated-table tr:hover .negative-cell {
+    background-color: rgba(230, 73, 73, 0.07);
+}
+
+.consolidated-table tr:hover .positive-cell {
+    background-color: rgba(5, 166, 107, 0.07);
+}

@@ -1,0 +1,112 @@
+@import '../variables.css';
+
+.headline-container {
+    position: relative;
+    margin-bottom: 16px;
+    /* Further reduced from 20px */
+}
+
+/* Add decorative background blob behind headline */
+.headline-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    width: 280px;
+    height: 280px;
+    background: var(--accent-gradient);
+    border-radius: 70% 30% 50% 50% / 50% 60% 40% 50%;
+    opacity: 0.05;
+    z-index: -1;
+    transform: rotate(-8deg);
+    filter: blur(10px);
+}
+
+/* Add another decorative element to headline */
+.headline-container::after {
+    content: '•';
+    position: absolute;
+    bottom: 10px;
+    right: -15px;
+    font-size: 24px;
+    color: var(--primary-blue);
+    opacity: 0.4;
+}
+
+/* Add a smaller circular highlight near the first "the Tech" span */
+.highlight-text-gradient:first-child::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -25px;
+    width: 45px;
+    height: 45px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    opacity: 0.07;
+    z-index: -1;
+}
+
+/* Add a highlight shape behind the "Pipeline" text */
+.highlight-text-gradient:last-child::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -15px;
+    width: 140px;
+    height: 60px;
+    background: var(--accent-gradient);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    opacity: 0.06;
+    z-index: -1;
+    transform: rotate(-5deg);
+}
+
+.accent-badge {
+    display: inline-block;
+    background: var(--accent-gradient);
+    color: var(--primary-dark);
+    font-size: 12px;
+    /* Reduced from 13px */
+    font-weight: 700;
+    padding: 7px 14px;
+    /* Further reduced from 8px 16px */
+    border-radius: 30px;
+    margin-bottom: 14px;
+    /* Further reduced from 16px */
+    letter-spacing: 1.2px;
+    box-shadow: 0 6px 15px rgba(8, 218, 253, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.accent-badge::after {
+    content: '✦';
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    font-size: 12px;
+    color: var(--primary-dark);
+    opacity: 0.3;
+}
+
+.highlight-text-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.highlight-text-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: var(--accent-gradient);
+    opacity: 0.4;
+    border-radius: 5px;
+}

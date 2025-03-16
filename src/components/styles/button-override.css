@@ -1,0 +1,13 @@
+/* Emergency style fixes with maximum specificity */
+
+/* Target testimonial quote color with extreme specificity */
+html body .form-testimonial .testimonial-quote,
+html body .testimonial-quote,
+html body [class*="testimonial-quote"],
+html body .form-testimonial>.testimonial-quote {
+    color: #333333 !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #333333 !important;
+}
+
+/* Add this to your index.html in a <style> tag for maximum override power */

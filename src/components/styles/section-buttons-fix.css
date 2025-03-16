@@ -1,0 +1,244 @@
+/* RESTORING WHITE SLIDE ANIMATION with robust implementation */
+
+/* Target problematic buttons with high specificity - REMOVE header button */
+body .problem-section .problem-cta,
+body .phi-fix-section .phi-fix-cta,
+body .value-prop-section .vp-cta,
+body .comparison-section .comparison-cta,
+body .case-studies-section .case-cta {
+    position: relative !important;
+    overflow: hidden !important;
+    /* Changed from visible to hidden to contain animation */
+    border: 2px solid var(--primary-dark) !important;
+    background: var(--accent-gradient) !important;
+    color: var(--primary-dark) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 10px 25px rgba(8, 218, 253, 0.25);
+}
+
+/* RESTORE white slide animation with proper z-index - REMOVE header button */
+body .problem-section .problem-cta::before,
+body .phi-fix-section .phi-fix-cta::before,
+body .value-prop-section .vp-cta::before,
+body .comparison-section .comparison-cta::before,
+body .case-studies-section .case-cta::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    /* Start position off-screen */
+    width: 100% !important;
+    height: 100% !important;
+    background: white !important;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    z-index: 2 !important;
+    /* Set between button background and text */
+    display: block !important;
+    /* Explicitly show the element */
+    opacity: 1 !important;
+    /* Ensure full opacity */
+    pointer-events: none !important;
+    /* Allow clicks to pass through */
+}
+
+/* Activate sliding animation on hover - REMOVE header button */
+body .problem-section .problem-cta:hover::before,
+body .phi-fix-section .phi-fix-cta:hover::before,
+body .value-prop-section .vp-cta:hover::before,
+body .comparison-section .comparison-cta:hover::before,
+body .case-studies-section .case-cta:hover::before {
+    left: 0 !important;
+    /* Slide in to cover button */
+}
+
+/* Keep hover effects for shadow and movement */
+body .problem-section .problem-cta:hover,
+body .phi-fix-section .phi-fix-cta:hover,
+body .value-prop-section .vp-cta:hover,
+body .comparison-section .comparison-cta:hover,
+body .case-studies-section .case-cta:hover {
+    transform: translateY(-8px) !important;
+    /* Increased from -5px to -8px */
+    box-shadow: 0 20px 40px rgba(8, 218, 253, 0.4) !important;
+    /* Increased vertical offset from 15px to 20px */
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* ADD SPECIFIC STYLING FOR HEADER BUTTON - with simpler hover effect */
+body .site-header .header-button {
+    position: relative !important;
+    overflow: visible !important;
+    /* Changed from hidden to visible */
+    border: 2px solid var(--primary-dark) !important;
+    background: var(--accent-gradient) !important;
+    color: var(--primary-dark) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 15px rgba(8, 218, 253, 0.2) !important;
+}
+
+/* Completely remove before element for header button */
+body .site-header .header-button::before {
+    display: none !important;
+}
+
+/* Simple hover effect with no sliding animation */
+body .site-header .header-button:hover {
+    transform: translateY(-6px) !important;
+    /* Increased from -3px to -6px */
+    box-shadow: 0 12px 25px rgba(8, 218, 253, 0.3) !important;
+    /* Increased vertical offset from 8px to 12px */
+    background: white !important;
+    /* Just change background color directly */
+    color: var(--primary-dark) !important;
+    border-color: var(--primary-blue) !important;
+}
+
+/* Ensure text and icons remain visible */
+body .site-header .header-button span,
+body .site-header .header-button * {
+    color: var(--primary-dark) !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* FIX: Explicit color settings for text and content on hover state */
+body .problem-section .problem-cta:hover .cta-text,
+body .phi-fix-section .phi-fix-cta:hover .cta-text,
+body .value-prop-section .vp-cta:hover .cta-text,
+body .comparison-section .comparison-cta:hover .cta-text,
+body .case-studies-section .case-cta:hover .cta-text,
+body .problem-section .problem-cta:hover span,
+body .phi-fix-section .phi-fix-cta:hover span,
+body .value-prop-section .vp-cta:hover span,
+body .comparison-section .comparison-cta:hover span,
+body .case-studies-section .case-cta:hover span,
+body .site-header .header-button:hover span,
+body .site-header .header-button:hover * {
+    color: #000000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+/* FIX: Explicit color settings for SVGs on hover state */
+body .problem-section .problem-cta:hover svg,
+body .phi-fix-section .phi-fix-cta:hover svg,
+body .value-prop-section .vp-cta:hover svg,
+body .comparison-section .comparison-cta:hover svg,
+body .case-studies-section .case-cta:hover svg,
+body .site-header .header-button:hover svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+    fill: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    /* Extra high z-index */
+    transform: translateX(5px) !important;
+}
+
+/* FIX: Force black color for direct children text nodes */
+body .problem-section .problem-cta:hover>*,
+body .phi-fix-section .phi-fix-cta:hover>*,
+body .value-prop-section .vp-cta:hover>*,
+body .comparison-section .comparison-cta:hover>*,
+body .case-studies-section .case-cta:hover>*,
+body .site-header .header-button:hover>* {
+    color: #000000 !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+/* Ensure content stays above the white slide with higher z-index */
+body .problem-section .problem-cta *,
+body .phi-fix-section .phi-fix-cta *,
+body .value-prop-section .vp-cta *,
+body .comparison-section .comparison-cta *,
+body .case-studies-section .case-cta *,
+body .site-header .header-button * {
+    position: relative !important;
+    z-index: 5 !important;
+    /* Higher than the ::before element */
+    color: var(--primary-dark) !important;
+}
+
+body .problem-section .problem-cta:hover *,
+body .phi-fix-section .phi-fix-cta:hover *,
+body .value-prop-section .vp-cta:hover *,
+body .comparison-section .comparison-cta:hover *,
+body .case-studies-section .case-cta:hover *,
+body .site-header .header-button:hover * {
+    color: #000000 !important;
+    /* Make all content black on hover */
+}
+
+/* Special handling for text spans to ensure visibility */
+body .problem-section .problem-cta span,
+body .phi-fix-section .phi-fix-cta span,
+body .value-prop-section .vp-cta span,
+body .comparison-section .comparison-cta span,
+body .case-studies-section .case-cta span {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Special handling for SVG icons */
+body .problem-section .problem-cta svg,
+body .phi-fix-section .phi-fix-cta svg,
+body .value-prop-section .vp-cta svg,
+body .comparison-section .comparison-cta svg,
+body .case-studies-section .case-cta svg {
+    position: relative !important;
+    z-index: 5 !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Keep arrow animation */
+body .problem-section .problem-cta:hover svg,
+body .phi-fix-section .phi-fix-cta:hover svg,
+body .value-prop-section .vp-cta:hover svg,
+body .comparison-section .comparison-cta:hover svg,
+body .case-studies-section .case-cta:hover svg {
+    transform: translateX(5px) !important;
+}
+
+/* STRONGER HEADER BUTTON FIX - Remove all animations */
+body .site-header .header-button,
+body .header-cta .header-button,
+body .site-header .header-cta a,
+body .site-header .header-cta a.header-button {
+    position: relative !important;
+    overflow: visible !important;
+    border: 2px solid var(--primary-dark) !important;
+    background: var(--accent-gradient) !important;
+    color: var(--primary-dark) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 15px rgba(8, 218, 253, 0.2) !important;
+}
+
+/* Completely remove ALL animations from header button using multiple selectors */
+body .site-header .header-button::before,
+body .header-cta .header-button::before,
+body .site-header .header-cta a::before,
+body .site-header .header-cta a.header-button::before {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Simple hover effect with direct background color change */
+body .site-header .header-button:hover,
+body .header-cta .header-button:hover,
+body .site-header .header-cta a:hover,
+body .site-header .header-cta a.header-button:hover {
+    transform: translateY(-6px) !important;
+    /* Increased from -3px to -6px */
+    box-shadow: 0 12px 25px rgba(8, 218, 253, 0.3) !important;
+    /* Increased vertical offset from 8px to 12px */
+    background: white !important;
+    color: var(--primary-dark) !important;
+    border-color: var(--primary-blue) !important;
+}

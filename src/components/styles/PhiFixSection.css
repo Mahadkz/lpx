@@ -1,0 +1,382 @@
+@import './variables.css';
+
+.phi-fix-section {
+    position: relative;
+    padding: 50px 40px 80px;
+    /* Reduced top padding from 80px to 50px */
+    background-color: var(--offwhite);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Visual depth layers */
+.phi-fix-layer {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.phi-fix-layer.depth-layer-1 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(115deg, rgba(8, 218, 253, 0.03) 0%, rgba(57, 241, 208, 0.02) 100%);
+}
+
+.phi-fix-layer.depth-layer-2 {
+    bottom: -200px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(10, 25, 59, 0.04) 0%, rgba(10, 25, 59, 0.01) 100%);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+/* Background patterns */
+.phi-fix-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(rgba(8, 218, 253, 0.04) 2px, transparent 2px),
+        radial-gradient(rgba(10, 25, 59, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* Static decorative elements */
+.phi-fix-decorative {
+    position: absolute;
+    pointer-events: none;
+}
+
+.phi-decorative-star-1 {
+    top: 15%;
+    right: 5%;
+    font-size: 24px;
+    color: var(--primary-blue);
+    opacity: 0.15;
+}
+
+.phi-decorative-star-2 {
+    bottom: 10%;
+    left: 7%;
+    font-size: 36px;
+    color: var(--primary-dark);
+    opacity: 0.08;
+}
+
+.phi-decorative-circle {
+    top: 30%;
+    right: 15%;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed var(--primary-blue);
+    border-radius: 50%;
+    opacity: 0.07;
+}
+
+/* Static foreground elements */
+.phi-foreground {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.phi-foreground.diagonal-line {
+    top: 80px;
+    left: 15%;
+    width: 120px;
+    height: 2px;
+    background-color: var(--primary-blue);
+    opacity: 0.12;
+    transform: rotate(-45deg);
+}
+
+.phi-foreground.square-box {
+    bottom: 120px;
+    right: 10%;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-dark);
+    opacity: 0.06;
+    transform: rotate(15deg);
+}
+
+.phi-foreground.corner-accent {
+    top: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    border-top: 3px solid var(--primary-blue);
+    border-right: 3px solid var(--primary-blue);
+    opacity: 0.1;
+}
+
+/* Main container */
+.phi-fix-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header styles */
+.phi-fix-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.phi-fix-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.phi-fix-header .highlight-text {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.phi-fix-header .highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--accent-gradient);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.phi-fix-intro {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.phi-fix-intro strong {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+/* USP label */
+.phi-usp-label {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin: 30px 0 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.phi-usp-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+}
+
+/* USP Grid */
+.phi-usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 24px;
+    margin-bottom: 10px;
+    /* Reduced from 30px to 10px to significantly reduce the gap */
+}
+
+/* USP Cards */
+.phi-usp-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(7, 20, 40, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-left: 4px solid var(--primary-blue);
+    border: 1px solid var(--primary-dark);
+    /* Added primary dark color solid border */
+}
+
+.phi-usp-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(7, 20, 40, 0.1);
+}
+
+/* Card left accent */
+.phi-usp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.phi-usp-card:hover::before {
+    opacity: 1;
+}
+
+.phi-card-icon {
+    flex: 0 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 218, 253, 0.08);
+    color: var(--primary-blue-dark);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.phi-usp-card:hover .phi-card-icon {
+    background: var(--accent-gradient);
+    color: var(--primary-dark);
+}
+
+.phi-card-content {
+    padding: 20px 24px;
+    flex: 1;
+}
+
+.phi-card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: var(--text-dark);
+}
+
+.phi-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text-dark);
+    opacity: 0.85;
+}
+
+/* Curved arrows pointing to CTA */
+.curved-arrow-container {
+    position: relative;
+    height: 40px;
+    /* Reduced from 60px for even less space */
+    margin-bottom: 0px;
+    /* Reduced from 20px to 10px */
+}
+
+.curved-arrow {
+    position: absolute;
+    color: var(--primary-blue);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.arrow-left {
+    left: 10%;
+    top: 0;
+}
+
+.arrow-right {
+    right: 10%;
+    top: 0;
+}
+
+/* CTA section */
+.phi-fix-cta-container {
+    text-align: center;
+    position: relative;
+    padding: 20px 0;
+}
+
+.phi-fix-cta {
+    font-size: 16.5px;
+    padding: 16px 32px;
+    box-shadow: 0 12px 30px rgba(8, 218, 253, 0.25);
+    position: relative;
+    z-index: 2;
+    border: 2px solid var(--primary-dark);
+    /* Changed border color to primary-dark (#0a193b) */
+}
+
+/* Static decorative elements for CTA */
+.cta-accent {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cta-accent-1 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(8, 218, 253, 0.05) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cta-accent-2 {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-blue);
+    opacity: 0.1;
+    border-radius: 50%;
+    bottom: 20px;
+    right: calc(50% - 120px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .phi-fix-section {
+        padding: 60px 20px;
+    }
+
+    .phi-fix-header h2 {
+        font-size: 2rem;
+    }
+
+    .phi-usp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curved-arrow-container {
+        display: none;
+        /* Hide arrows on mobile */
+    }
+
+    .phi-fix-cta {
+        padding: 14px 26px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+    }
+}

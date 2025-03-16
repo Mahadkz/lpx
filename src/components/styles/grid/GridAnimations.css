@@ -1,0 +1,219 @@
+@import '../variables.css';
+
+/* Grid container smoother, more consistent drift animation */
+@keyframes gridDrift {
+    0% {
+        transform: translate(-1%, -1%) rotate(-0.5deg);
+    }
+
+    25% {
+        transform: translate(0.5%, -0.5%) rotate(0.2deg);
+    }
+
+    50% {
+        transform: translate(0%, 0.5%) rotate(0deg);
+    }
+
+    75% {
+        transform: translate(-0.5%, 0%) rotate(-0.3deg);
+    }
+
+    100% {
+        transform: translate(0.5%, -0.8%) rotate(0.1deg);
+    }
+}
+
+/* Enhanced horizontal line animations */
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(-8px) scaleY(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(0) scaleY(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(8px) scaleY(0.97);
+        opacity: 0.8;
+    }
+}
+
+/* Enhanced animations with multiple directions */
+@keyframes moveHorizontalRight {
+    0% {
+        transform: translateX(-8px) scaleY(0.98);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(0) scaleY(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateX(8px) scaleY(0.98);
+        opacity: 0.7;
+    }
+}
+
+@keyframes moveHorizontalLeft {
+    0% {
+        transform: translateX(8px) scaleY(0.98);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(0) scaleY(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateX(-8px) scaleY(0.98);
+        opacity: 0.7;
+    }
+}
+
+/* Additional horizontal animation patterns */
+@keyframes moveHorizontalShort {
+    0% {
+        transform: translateX(-5px) scaleY(0.97);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translateX(2px) scaleY(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateX(5px) scaleY(0.98);
+        opacity: 0.7;
+    }
+}
+
+@keyframes moveHorizontalPulse {
+    0% {
+        transform: translateX(0) scaleY(0.95);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateX(6px) scaleY(0.97);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: translateX(0) scaleY(1);
+        opacity: 0.9;
+    }
+
+    75% {
+        transform: translateX(-6px) scaleY(0.97);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translateX(0) scaleY(0.95);
+        opacity: 0.6;
+    }
+}
+
+/* Enhanced vertical line animations */
+@keyframes moveVertical {
+    0% {
+        transform: translateY(-8px) scaleX(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(0) scaleX(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(8px) scaleX(0.97);
+        opacity: 0.8;
+    }
+}
+
+@keyframes moveVerticalDown {
+    0% {
+        transform: translateY(-8px) scaleX(0.98);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateY(8px) scaleX(0.98);
+        opacity: 0.7;
+    }
+}
+
+@keyframes moveVerticalUp {
+    0% {
+        transform: translateY(8px) scaleX(0.98);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateY(-8px) scaleX(0.98);
+        opacity: 0.7;
+    }
+}
+
+/* Additional vertical animation patterns */
+@keyframes moveVerticalShort {
+    0% {
+        transform: translateY(-5px) scaleX(0.97);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translateY(2px) scaleX(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateY(5px) scaleX(0.98);
+        opacity: 0.7;
+    }
+}
+
+@keyframes moveVerticalPulse {
+    0% {
+        transform: translateY(0) scaleX(0.95);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateY(6px) scaleX(0.97);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.9;
+    }
+
+    75% {
+        transform: translateY(-6px) scaleX(0.97);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translateY(0) scaleX(0.95);
+        opacity: 0.6;
+    }
+}

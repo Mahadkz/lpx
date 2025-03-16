@@ -1,0 +1,36 @@
+@import '../variables.css';
+
+.hero-description {
+    margin-bottom: 24px;
+    /* Further reduced from 28px */
+    border-left: 5px solid var(--primary-blue);
+    padding-left: 20px;
+    position: relative;
+    background: rgba(8, 218, 253, 0.03);
+    padding-top: 8px;
+    /* Further reduced */
+    padding-bottom: 8px;
+    /* Further reduced */
+    padding-right: 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Add subtle decorative element to description */
+.hero-description::after {
+    content: '○';
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    font-size: 10px;
+    color: var(--primary-blue);
+    opacity: 0.6;
+}
+
+.hero-description p {
+    font-size: 1.2rem;
+    /* Reduced from 1.25rem */
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin: 0;
+    font-weight: 500;
+}

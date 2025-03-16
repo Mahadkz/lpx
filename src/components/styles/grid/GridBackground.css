@@ -1,0 +1,99 @@
+@import '../variables.css';
+
+/* Main wrapper with height constraints to fit in first fold */
+.hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--white);
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Optimize for various zoom levels */
+    height: 100vh;
+}
+
+/* Enhanced bold geometric shapes for visual impact */
+.geometric-shape {
+    display: none;
+    /* Hide the previous shapes */
+}
+
+/* Dynamic grid background with enhanced animation and definition */
+.dynamic-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    /* Add mask for fading edges */
+    -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+}
+
+/* Grid container with uniform drift animation */
+.grid-container {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    opacity: 0.15;
+    pointer-events: none;
+    /* Smoother, uniform drift animation */
+    animation: gridDrift 20s infinite alternate linear;
+    transform-origin: center center;
+}
+
+/* Create more defined horizontal grid lines with reduced thickness for smaller grid */
+.grid-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    /* Reduced from 1.5px for finer lines */
+    background: var(--primary-dark);
+}
+
+/* Create more defined vertical grid lines with reduced thickness for smaller grid */
+.grid-vertical {
+    position: absolute;
+    width: 1px;
+    /* Reduced from 1.5px for finer lines */
+    height: 100%;
+    background: var(--primary-dark);
+}
+
+/* Add subtle dotted pattern for more texture */
+.hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--primary-dark) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Add small decorative plus symbols across the background */
+.hero-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(var(--primary-blue) 1px, transparent 2px),
+        radial-gradient(var(--primary-dark) 1px, transparent 2px);
+    background-size: 100px 100px, 120px 120px;
+    background-position: 0 0, 50px 50px;
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 0;
+}
