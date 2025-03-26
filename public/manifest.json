@@ -1,0 +1,25 @@
+{
+    "short_name": "Phi Consulting",
+    "name": "Phi Consulting - Leadership Through Partnership",
+    "icons": [
+        {
+            "src": "phi-logo.png",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "phi-logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "phi-logo.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#0a193b",
+    "background_color": "#ffffff"
+}

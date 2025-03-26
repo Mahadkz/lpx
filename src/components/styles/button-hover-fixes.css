@@ -1,0 +1,86 @@
+/* MULTI-SOLUTION APPROACH TO FIX BUTTON HOVER TEXT VISIBILITY */
+
+/* SOLUTION 1: INVERT COLOR APPROACH
+   Instead of trying to keep black text, make text WHITE on hover 
+   for better contrast against any background */
+.problem-section .problem-cta:hover span,
+.phi-fix-section .phi-fix-cta:hover span,
+.value-prop-section .vp-cta:hover span,
+.comparison-section .comparison-cta:hover span,
+.case-studies-section .case-cta:hover span,
+.problem-section .problem-cta:hover svg,
+.phi-fix-section .phi-fix-cta:hover svg,
+.value-prop-section .vp-cta:hover svg,
+.comparison-section .comparison-cta:hover svg,
+.case-studies-section .case-cta:hover svg {
+    color: white !important;
+    stroke: white !important;
+    fill: transparent !important;
+}
+
+/* SOLUTION 2: REMOVE ::BEFORE, USE BACKGROUND COLOR CHANGE
+   Abandons sliding white animation entirely, just changes 
+   background color on hover */
+.problem-section .problem-cta::before,
+.phi-fix-section .phi-fix-cta::before,
+.value-prop-section .vp-cta::before,
+.comparison-section .comparison-cta::before,
+.case-studies-section .case-cta::before {
+    display: none !important;
+}
+
+.problem-section .problem-cta:hover,
+.phi-fix-section .phi-fix-cta:hover,
+.value-prop-section .vp-cta:hover,
+.comparison-section .comparison-cta:hover,
+.case-studies-section .case-cta:hover {
+    background: white !important;
+}
+
+/* SOLUTION 3: TEXT-SHADOW FOR BETTER VISIBILITY
+   Adds text shadow to create visual separation */
+.problem-section .problem-cta:hover span,
+.phi-fix-section .phi-fix-cta:hover span,
+.value-prop-section .vp-cta:hover span,
+.comparison-section .comparison-cta:hover span,
+.case-studies-section .case-cta:hover span {
+    text-shadow: 0 0 1px #000, 0 0 2px #000 !important;
+    font-weight: 900 !important;
+}
+
+/* SOLUTION 4: OUTLINE TEXT APPROACH
+   Creates text outline effect for better visibility */
+.value-prop-section .vp-cta:hover span,
+.value-prop-section .vp-cta:hover svg {
+    -webkit-text-stroke: 0.5px black !important;
+}
+
+/* SOLUTION 5: MIXED BACKGROUND GRADIENT WITH TEXT
+   Uses semi-transparent gradient that doesn't fully cover text */
+.comparison-section .comparison-cta::before {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0.8) 100%) !important;
+    opacity: 0.9 !important;
+}
+
+/* SOLUTION 6: POINTER-EVENTS APPROACH
+   Fix potential event bubbling issues */
+.case-studies-section .case-cta span,
+.case-studies-section .case-cta svg {
+    pointer-events: none !important;
+}
+
+.case-studies-section .case-cta::before {
+    pointer-events: none !important;
+}
+
+/* SOLUTION 7: DIRECT CHILD TARGETING
+   Rather than using spans, directly target button content */
+.phi-fix-section .phi-fix-cta>.cta-text,
+.phi-fix-section .phi-fix-cta:hover>.cta-text {
+    position: relative !important;
+    z-index: 100 !important;
+    color: black !important;
+    mix-blend-mode: multiply !important;
+}

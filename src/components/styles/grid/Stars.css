@@ -1,0 +1,60 @@
+@import '../variables.css';
+
+/* Enhanced decorative star elements in grid */
+.grid-star {
+    position: absolute;
+    font-size: 14px;
+    color: var(--primary-blue);
+    opacity: 0.3;
+    z-index: 0;
+    /* Enhanced pulse animation */
+    animation: pulse 6s infinite ease-in-out;
+    /* Add subtle drift to stars */
+    filter: drop-shadow(0 0 2px rgba(8, 218, 253, 0.3));
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(1.05);
+    }
+}
+
+/* New varied star animations */
+@keyframes drift {
+    0% {
+        transform: translate(-3px, -2px);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translate(0, 0);
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: translate(3px, 2px);
+        opacity: 0.15;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}

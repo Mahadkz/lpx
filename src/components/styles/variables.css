@@ -1,0 +1,19 @@
+/* Color variables with higher contrast */
+:root {
+    --primary-dark: #0a193b;
+    --primary-blue: #08dafd;
+    --primary-blue-dark: #06b8d4;
+    /* Used as is, already dark enough */
+    --primary-blue-light: #7eeeff;
+    --accent-red: #e64949;
+    /* Added new accent color for cursor pulsation */
+    --white: #ffffff;
+    --offwhite: #f0f4f8;
+    --light-gray: #e6edf5;
+    --mid-gray: #d1dce8;
+    --text-dark: #071428;
+    --text-light: #ffffff;
+    --shadow-color: rgba(7, 20, 40, 0.15);
+    --gradient-bg: linear-gradient(135deg, #0a193b 0%, #0d2456 100%);
+    --accent-gradient: linear-gradient(90deg, #08dafd 0%, #39f1d0 100%);
+}

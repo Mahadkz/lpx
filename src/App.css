@@ -1,0 +1,23 @@
+/* Import more distinctive, bold fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@500;700;800&display=swap');
+
+.App {
+    text-align: center;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #0a193b;
+    background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+}

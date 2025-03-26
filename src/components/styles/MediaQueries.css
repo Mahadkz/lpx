@@ -1,0 +1,200 @@
+@import './variables.css';
+
+/* Add specific media query targeting Chrome's zoom levels - updated for the new 5% increase */
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+
+    /* For users at default zoom (100%) - now matching 110% */
+    .hero-content {
+        transform: scale(0.97);
+    }
+
+    /* When user is at 110% zoom - our optimal setting */
+    @media (min-resolution: 1.05dppx) and (max-resolution: 1.15dppx) {
+        .hero-content {
+            transform: scale(0.92);
+        }
+
+        .hero-section h1 {
+            font-size: 3.85rem;
+        }
+    }
+
+    /* When user is at around 80% zoom */
+    @media (min-resolution: 0.8dppx) and (max-resolution: 0.85dppx) {
+        .hero-content {
+            transform: scale(1);
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+        }
+    }
+
+    /* When user is at higher zoom levels (125%+) */
+    @media (min-resolution: 1.2dppx) {
+        .hero-content {
+            transform: scale(0.85);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+/* Laptop specific adjustments */
+@media screen and (max-width: 1366px) {
+    .site-header {
+        padding: 10px 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 3.4rem;
+    }
+
+    .hero-description p {
+        font-size: 1rem;
+    }
+
+    .stats-container {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .stat-value {
+        font-size: 1.6rem;
+    }
+
+    .hero-content {
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 1366px) and (min-height: 600px) and (max-height: 800px) {
+    .site-header {
+        padding: 12px 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 3.8rem;
+    }
+
+    .hero-description p {
+        font-size: 1.15rem;
+    }
+
+    .stats-container {
+        padding: 15px;
+        margin-bottom: 22px;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+    }
+
+    .hero-content {
+        gap: 30px;
+    }
+}
+
+/* For screens with scaling */
+@media screen and (max-width: 1400px) and (min-height: 700px) {
+    .hero-wrapper {
+        min-height: auto;
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-section h1 {
+        font-size: 3.4rem;
+    }
+
+    .hero-content {
+        padding-left: 10px;
+    }
+
+    .hero-text {
+        margin-right: 10px;
+    }
+
+    .contact-form-container {
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .contact-form-container {
+        max-width: 400px;
+    }
+
+    .headline-container::before {
+        width: 220px;
+        height: 220px;
+        left: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-wrapper {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .contact-form-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-section h1 {
+        font-size: 2.6rem;
+    }
+
+    .site-header {
+        padding: 15px 20px;
+    }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+
+    .headline-container::before {
+        width: 180px;
+        height: 180px;
+        left: -10px;
+        top: -10px;
+    }
+
+    .highlight-text-gradient:last-child::before {
+        width: 100px;
+        height: 40px;
+    }
+
+    .grid-container {
+        opacity: 0.08;
+    }
+
+    /* Apply tighter mask on mobile for better focus on content */
+    .dynamic-grid {
+        -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+        mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+    }
+}

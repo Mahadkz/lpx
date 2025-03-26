@@ -1,0 +1,249 @@
+@import './variables.css';
+
+/* Hide default cursor on interactive elements */
+a,
+button,
+.interactive,
+[role="button"] {
+    cursor: none;
+}
+
+body {
+    cursor: none;
+}
+
+/* Main cursor circle - CHANGED TO BLACK BORDER */
+.cursor {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    mix-blend-mode: difference;
+    will-change: transform;
+}
+
+.cursor--visible {
+    opacity: 0.95;
+}
+
+/* Updated border to black */
+.cursor-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--text-dark);
+    /* Changed to black/dark color */
+    box-sizing: border-box;
+    animation: pulse-border-color 4s infinite ease-in-out;
+    box-shadow: 0 0 12px rgba(7, 20, 40, 0.3);
+    /* Adjusted shadow for black border */
+}
+
+/* Added pointer shape in the center */
+.cursor-border::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border-left: 2px solid var(--text-dark);
+    border-bottom: 2px solid var(--text-dark);
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Inner cursor dot - CHANGED TO BLACK */
+.cursor-dot {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-dark);
+    /* Changed to black/dark color */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform 0.05s ease-out, width 0.1s ease, height 0.1s ease, opacity 0.3s ease, background-color 0.2s ease;
+    will-change: transform;
+    box-shadow: 0 0 8px rgba(7, 20, 40, 0.4);
+    /* Adjusted shadow for black dot */
+    animation: pulse-dot-color 4s infinite ease-in-out;
+}
+
+.cursor-dot--visible {
+    opacity: 1;
+}
+
+/* Hover state - UPDATED FOR BLACK THEME */
+.cursor--hovering {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(7, 20, 40, 0.15);
+    /* Changed to dark background */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.cursor--hovering .cursor-border {
+    border-width: 2.5px;
+    border-color: var(--text-dark);
+    animation: pulse-border-fast 1.5s infinite ease-out, pulse-border-color 4s infinite ease-in-out;
+}
+
+.cursor--hovering .cursor-border::after {
+    opacity: 0.7;
+}
+
+.cursor-dot--hovering {
+    width: 9px;
+    height: 9px;
+    background-color: var(--text-dark);
+    opacity: 1;
+}
+
+/* Click state - KEEP RED BUT ADJUST WITH BLACK */
+.cursor--clicked {
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(230, 73, 73, 0.25);
+    width: 58px;
+    height: 58px;
+}
+
+.cursor--clicked .cursor-border {
+    border-color: #e64949;
+    border-width: 3.5px;
+}
+
+.cursor--clicked .cursor-border::after {
+    border-color: #e64949;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
+}
+
+.cursor-dot--clicked {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.8;
+    background-color: #e64949;
+}
+
+/* Updated animations for black/red pulsation */
+@keyframes pulse-border-color {
+
+    0%,
+    100% {
+        border-color: var(--text-dark);
+        box-shadow: 0 0 12px rgba(7, 20, 40, 0.3);
+    }
+
+    50% {
+        border-color: #e64949;
+        box-shadow: 0 0 12px rgba(230, 73, 73, 0.4);
+    }
+}
+
+/* Updated dot color pulsation */
+@keyframes pulse-dot-color {
+
+    0%,
+    100% {
+        background-color: var(--text-dark);
+        box-shadow: 0 0 8px rgba(7, 20, 40, 0.4);
+    }
+
+    50% {
+        background-color: #e64949;
+        box-shadow: 0 0 8px rgba(230, 73, 73, 0.6);
+    }
+}
+
+@keyframes pulse-border-fast {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Extra animation for dot */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* Media query to disable custom cursor on touch devices */
+@media (pointer: coarse),
+(max-width: 768px) {
+
+    .cursor,
+    .cursor-dot {
+        display: none;
+    }
+
+    a,
+    button,
+    .interactive,
+    [role="button"],
+    body {
+        cursor: auto;
+    }
+}
+
+/* Removed redundant mouse-cursor styles placeholder */
+
+.cursor {}
+
+.cursor-follower {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s ease, opacity 0.25s ease, border-color 0.3s ease, border-width 0.3s ease;
+    z-index: 9997;
+}
+
+.cursor.active {
+    opacity: 0.7;
+    /* Increased from 0.5 for more visibility */
+    transform: scale(0.7) translate(-50%, -50%);
+    background: rgba(10, 25, 59, 0.9);
+    /* Darker, more visible background */
+    box-shadow: 0 0 10px rgba(10, 25, 59, 0.4);
+    /* Added shadow for definition */
+}
+
+.cursor-follower.active {
+    transition: transform 0.18s ease, opacity 0.25s ease, border-color 0.3s ease, border-width 0.3s ease;
+}
+
+/* ...existing code... */

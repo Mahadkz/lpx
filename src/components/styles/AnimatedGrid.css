@@ -1,0 +1,52 @@
+.animated-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.9;
+    /* Increased from 0.7 for better visibility */
+    pointer-events: none;
+}
+
+/* Modified mask with less fade in center for better grid visibility */
+.animated-grid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0) 15%,
+            /* Increased from 10% - more visible center */
+            rgba(255, 255, 255, 0.15) 40%,
+            /* Reduced from 0.2 for less fade */
+            rgba(255, 255, 255, 0.4) 70%,
+            /* Reduced from 0.6 for less fade */
+            rgba(255, 255, 255, 0.85) 95%);
+    /* Reduced from 0.95 for less fade */
+    pointer-events: none;
+}
+
+/* Reduce opacity on smaller screens to prevent visual clutter, but still darker than before */
+@media (max-width: 768px) {
+    .animated-grid {
+        opacity: 0.65;
+        /* Increased from 0.5 for better visibility */
+    }
+
+    /* Modified mobile gradient for better visibility */
+    .animated-grid::after {
+        background: radial-gradient(circle at center,
+                rgba(255, 255, 255, 0) 10%,
+                /* Increased from 5% - more visible center */
+                rgba(255, 255, 255, 0.25) 35%,
+                /* Reduced from 0.4 for less fade */
+                rgba(255, 255, 255, 0.65) 65%,
+                /* Reduced from 0.8 for less fade */
+                rgba(255, 255, 255, 0.9) 95%);
+        /* Reduced from 1 for less fade */
+    }
+}

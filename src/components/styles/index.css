@@ -1,0 +1,38 @@
+/* Import all component styles */
+@import './variables.css';
+
+/* Grid Components */
+@import './grid/GridBackground.css';
+@import './grid/GridAnimations.css';
+@import './grid/Stars.css';
+
+/* Header Components */
+@import './header/Header.css';
+
+/* Hero Components */
+@import './hero/HeroSection.css';
+@import './hero/HeadlineElements.css';
+@import './hero/Description.css';
+
+/* Stats Components */
+@import './stats/StatsContainer.css';
+
+/* CTA Components */
+@import './cta/CtaButton.css';
+@import './cta/RocketAnimation.css';
+
+/* Section Components */
+@import './ProblemSection.css';
+@import './PhiFixSection.css';
+@import './ValuePropSection.css';
+@import './CaseStudiesSection.css';
+@import './TestimonialsSection.css';
+@import './PitchSection.css';
+/* Add this import */
+@import './ComparisonSection.css';
+
+/* Mouse Cursor */
+@import './MouseCursor.css';
+
+/* Media Queries */
+@import './MediaQueries.css';

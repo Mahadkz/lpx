@@ -1,0 +1,295 @@
+/* Global button styles to maintain consistency across the site */
+
+/* Primary CTA button (large) */
+.primary-cta,
+.pitch-primary-cta,
+.comparison-cta,
+.case-cta,
+.vp-cta,
+.phi-fix-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-gradient);
+    color: var(--primary-dark) !important;
+    /* Added !important to guarantee text color */
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 30px rgba(8, 218, 253, 0.3);
+    border: 2px solid var(--primary-dark);
+    position: relative;
+    /* Ensure this is explicitly set */
+    overflow: hidden;
+}
+
+/* NEW sliding white hover effect - EXCLUDE header-cta */
+.primary-cta::before,
+.pitch-primary-cta::before,
+.comparison-cta::before,
+.case-cta::before,
+.vp-cta::before,
+.phi-fix-cta::before,
+.secondary-cta::before,
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+    /* Changed from 0 to ensure it's above the button background but below text */
+}
+
+/* When hovering, slide the white background - EXCLUDE header-cta */
+.primary-cta:hover::before,
+.pitch-primary-cta:hover::before,
+.comparison-cta:hover::before,
+.case-cta:hover::before,
+.vp-cta:hover::before,
+.phi-fix-cta:hover::before,
+.secondary-cta:hover::before,
+.submit-button:hover::before {
+    left: 0;
+    /* Slide in to cover the entire button */
+}
+
+/* Improved approach: Apply z-index to ALL button content, not just spans and SVGs */
+.primary-cta *,
+.pitch-primary-cta *,
+.comparison-cta *,
+.case-cta *,
+.vp-cta *,
+.phi-fix-cta *,
+.secondary-cta *,
+.header-button *,
+.submit-button * {
+    position: relative;
+    z-index: 3;
+    /* Increased from 2 to ensure it's definitely above the animation */
+}
+
+/* Ensure text and icons stay on top of the slide animation */
+.primary-cta span,
+.pitch-primary-cta span,
+.comparison-cta span,
+.case-cta span,
+.vp-cta span,
+.phi-fix-cta span,
+.secondary-cta span,
+.header-button span,
+.submit-button span,
+.primary-cta svg,
+.pitch-primary-cta svg,
+.comparison-cta svg,
+.case-cta svg,
+.vp-cta svg,
+.phi-fix-cta svg,
+.secondary-cta svg,
+.header-button svg,
+.submit-button svg {
+    position: relative;
+    z-index: 3;
+    /* Increased from 2 to ensure it's definitely above the animation */
+}
+
+/* Keep the shadow and vertical movement on hover */
+.primary-cta:hover,
+.pitch-primary-cta:hover,
+.comparison-cta:hover,
+.case-cta:hover,
+.vp-cta:hover,
+.phi-fix-cta:hover,
+.secondary-cta:hover,
+.header-button:hover,
+.submit-button:hover {
+    transform: translateY(-8px);
+    /* Increased from -5px to -8px for more upward movement */
+    box-shadow: 0 20px 40px rgba(8, 218, 253, 0.35);
+    /* Increased vertical offset from 15px to 20px */
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* Secondary CTA button (medium) */
+.secondary-cta,
+.header-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-gradient);
+    color: var(--primary-dark) !important;
+    /* Added !important to guarantee text color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(8, 218, 253, 0.2);
+    border: 2px solid var(--primary-dark);
+    position: relative;
+    /* Ensure this is explicitly set */
+    /* Added for positioning the sliding animation */
+    overflow: hidden;
+    /* Added to contain the sliding animation */
+}
+
+/* Modified pitch-secondary-cta to be text-only with no button shape */
+.pitch-secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--primary-dark) !important;
+    padding: 0;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+/* Remove white slide effect for pitch-secondary-cta */
+.pitch-secondary-cta::before {
+    display: none !important;
+}
+
+/* Special hover effect for text-only button */
+.pitch-secondary-cta:hover {
+    transform: translateY(0) !important;
+    box-shadow: none !important;
+    color: var(--primary-blue) !important;
+}
+
+.pitch-secondary-cta:hover svg {
+    transform: translateX(3px) translateY(-3px) !important;
+}
+
+/* Submit button (form) */
+.submit-button {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--accent-gradient);
+    color: var(--primary-dark) !important;
+    /* Added !important to guarantee text color */
+    border: 2px solid var(--primary-dark);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    /* Ensure this is explicitly set */
+    overflow: hidden;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(8, 218, 253, 0.25);
+    color: #000000 !important;
+    /* Changed to pure black */
+    border-color: #000000 !important;
+    /* Changed to pure black */
+}
+
+/* Remove the previous shine effect since we have a new hover effect */
+.primary-cta::after,
+.pitch-primary-cta::after,
+.comparison-cta::after,
+.case-cta::after,
+.vp-cta::after,
+.phi-fix-cta::after,
+.submit-button::after {
+    display: none;
+}
+
+/* Keep arrow animation for buttons with arrows */
+.primary-cta svg,
+.pitch-primary-cta svg,
+.comparison-cta svg,
+.case-cta svg,
+.vp-cta svg,
+.phi-fix-cta svg,
+.submit-button svg {
+    transition: transform 0.3s ease;
+    color: var(--primary-dark);
+    /* Ensure icon stays dark */
+}
+
+.primary-cta:hover svg,
+.pitch-primary-cta:hover svg,
+.comparison-cta:hover svg,
+.case-cta:hover svg,
+.vp-cta:hover svg,
+.phi-fix-cta:hover svg,
+.submit-button:hover svg {
+    transform: translateX(5px);
+    color: #000000;
+    /* Ensure icon also becomes black on hover */
+}
+
+/* Special exception for trust-cta - preserve original styling */
+.trust-cta::before {
+    display: none;
+}
+
+.trust-cta:hover {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+/* Special header-cta styling - direct color change with no animations */
+.header-cta a,
+.header-cta .header-button,
+.site-header .header-button {
+    background: var(--accent-gradient) !important;
+    transition: all 0.3s ease !important;
+    color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+.header-cta a:hover,
+.header-cta .header-button:hover,
+.site-header .header-button:hover {
+    background: white !important;
+    color: var(--primary-dark) !important;
+    border-color: var(--primary-blue) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .primary-cta,
+    .pitch-primary-cta,
+    .comparison-cta,
+    .case-cta,
+    .vp-cta,
+    .trust-cta,
+    .phi-fix-cta {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+
+    .secondary-cta,
+    .header-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* No need for padding changes on pitch-secondary-cta since it's text-only */
+}
