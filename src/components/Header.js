@@ -22,7 +22,10 @@ function Header() {
     <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-container">
         <div className="logo-container">
-          <a href="https://www.phi.consulting/" className="site-logo">
+          <a
+            href="https://www.phi.consulting/?utm_source=landing_page&utm_medium=click&utm_campaign=outbound_links"
+            className="site-logo"
+          >
             <img src="/phi-logo.png" alt="Phi Consulting" />
           </a>
         </div>

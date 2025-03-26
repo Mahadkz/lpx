@@ -20,7 +20,10 @@ function Footer() {
       <div className="footer-container">
         {/* Top section with logo and tagline */}
         <div className="footer-brand">
-          <a href="https://www.phi.consulting/">
+          <a
+            href="https://www.phi.consulting/?utm_source=landing_page&utm_medium=click&utm_campaign=outbound_links"
+            className="site-logo footer-logo"
+          >
             <img
               src="/phi-logo.png"
               alt="Phi Consulting Logo"
