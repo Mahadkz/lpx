@@ -171,8 +171,8 @@ function ComparisonSection() {
           {/* Repositioned savings badge */}
           <div className="savings-badge">
             <div className="savings-badge-content">
-              <span className="savings-amount">Save $128,400+</span>
-              <span className="savings-percent">86% Cost Reduction</span>
+              <span className="savings-amount">Save $126,000+</span>
+              <span className="savings-percent">84% Cost Reduction</span>
             </div>
           </div>
 
@@ -183,7 +183,7 @@ function ComparisonSection() {
             </div>
             <div className="column-header phi-header">
               <h3>Phi Consulting</h3>
-              <div className="total-cost phi-cost">$21,600/yr</div>
+              <div className="total-cost phi-cost">$24,000/yr</div>
             </div>
           </div>
 
@@ -196,7 +196,7 @@ function ComparisonSection() {
                   Base Salary: <strong>$54K-$75K</strong>
                 </td>
                 <td className="positive-cell">
-                  Base Amount: <strong>Starting at $21,600</strong>{" "}
+                  Base Amount: <strong>Starting at $24,000</strong>{" "}
                   <span className="note">Lowest Entry amount for an SDR</span>
                 </td>
               </tr>
