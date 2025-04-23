@@ -11,7 +11,8 @@ export const initializeRebB2B = () => {
 
     // If not loaded, reinitialize
     try {
-        !function () {
+        // Using a void operator to satisfy ESLint no-unused-expressions
+        void function () {
             var reb2b = window.reb2b = window.reb2b || [];
             if (reb2b.invoked) return;
             reb2b.invoked = true;
