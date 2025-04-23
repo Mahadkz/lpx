@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -15,8 +15,14 @@ import './components/styles/global-buttons.css';
 // Remove previous fix file
 // import './components/styles/section-buttons-fix.css'; 
 import './components/styles/button-hover-fixes.css'; // Add new multi-solution file
+import { initializeRebB2B } from './utils/trackingScripts';
 
 function App() {
+  useEffect(() => {
+    // Initialize tracking scripts when the app loads
+    initializeRebB2B();
+  }, []);
+
   return (
     <div className="App">
       <Header />
